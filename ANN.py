@@ -60,7 +60,7 @@ np.random.shuffle(index)
 Truth_df = Truth_df[index]
 Train_df = Train_df[index]
 # split the database
-test_ratio = 0.1
+test_ratio = 0.2
 Truth_df_test = Truth_df[:int(test_ratio*Truth_df.shape[0])]
 Train_df_test = Train_df[:int(test_ratio*Train_df.shape[0])]
 
@@ -87,7 +87,7 @@ model.add(Dense(1, activation = 'relu'))
 model.compile(loss = 'mse', optimizer = 'adam', metrics=[r2_total])
 model.summary()
 
-history = model.fit(Train_df, Truth_df, epochs=100, validation_split=0.2, verbose=1)
+history = model.fit(Train_df, Truth_df, epochs=100, validation_split=0.25, verbose=1)
 
 """
 4. Evaluate the model
